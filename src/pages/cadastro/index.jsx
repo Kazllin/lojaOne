@@ -90,6 +90,25 @@ const cadastro = () => {
         </div>
       </div>
       <div className="painels">
+        <div className="painel left-painel">
+          <div className="content">
+            <h3>Novo usua</h3>
+            <p>novo usua</p>
+            <button className="btn transparent" id="cada"></button>
+          </div>
+
+          <img src={deco} alt="" className="image" />
+        </div>
+
+        <div className="painel right-painel">
+          <div className="content">
+            <h3>Novo membro</h3>
+            <p>novo membro</p>
+            <button className="btn transparent" id="cada"></button>
+          </div>
+
+          <img src={deco} alt="" className="image" />
+        </div>
       </div>
     </div>
   );
