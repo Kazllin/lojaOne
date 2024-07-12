@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./cadastro.css";
 import avatar from "../../components/img/icons/entrar-avatar.png";
 import rm from "../../components/img/icons/envelope.png";
@@ -9,6 +9,21 @@ const cadastro = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
+  useEffect(() => {
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
+
+    novo.addEventListener('click', () => {
+      wrapper.classList.add("g");
+    });
+
+    velho.addEventListener('click', () => {
+      wrapper.classList.remove("g");
+    });
+
+  }, []);
 
   const handleSubmit = async () => {
     try {
@@ -25,92 +40,100 @@ const cadastro = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="tela">
-        <div className="formulario">
-          <form className="cadastro">
-            <h2 className="title">Cadastro</h2>
+    
+      <div className="container">
+        <div className="forms-container">
+          <div className="signin-signup">
+            <form action="#" className="sign-in-form">
+              <h2 className="title">Sign in</h2>
+              <div className="input-field">
+                <input type="text" placeholder="Username" onChange={(e) => setNome(e.target.value)}/>
+              </div>
+              <div className="input-field">
+                <i className="fas fa-lock"></i>
+                <input type="password" placeholder="Password" />
+              </div>
+              <input type="submit" value="Login" className="btn solid" />
+              <p className="social-text">Or Sign in with social platforms</p>
+              <div className="social-media">
+                <a href="#" className="social-icon">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-google"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+            <form action="#" className="sign-up-form">
+              <h2 className="title">Sign up</h2>
+              <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input type="text" placeholder="Username" />
+              </div>
+              <div className="input-field">
+                <i className="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div className="input-field">
+                <i className="fas fa-lock"></i>
+                <input type="password" placeholder="Password" />
+              </div>
+              <input type="submit" className="btn" value="Sign up" />
+              <p className="social-text">Or Sign up with social platforms</p>
+              <div className="social-media">
+                <a href="#" className="social-icon">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-google"></i>
+                </a>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
 
-            <div className="input-field">
-              <img src={avatar} alt="avatar" className="avatar" />
-              <input
-                placeholder="NOME"
-                onChange={(e) => setNome(e.target.value)}
-              />
+        <div className="panels-container">
+          <div className="panel left-panel">
+            <div className="content">
+              <h3>New here ?</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                ex ratione. Aliquid!
+              </p>
+              <button className="btn transparent" id="sign-up-btn">
+                Sign up
+              </button>
             </div>
-
-            <div className="input-field">
-              <img src={rm} alt="avatar" className="avatar" />
-              <input
-                type="email"
-                placeholder="RM"
-                onChange={(e) => setEmail(e.target.value)}
-              />
+            <img src={deco} className="image" alt="" />
+          </div>
+          <div className="panel right-panel">
+            <div className="content">
+              <h3>One of us ?</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                laboriosam ad deleniti.
+              </p>
+              <button className="btn transparent" id="sign-in-btn">
+                Sign in
+              </button>
             </div>
-
-            <div className="input-field">
-              <img src={se} alt="avatar" className="avatar" />
-              <input
-                type="password"
-                placeholder="SENHA"
-                onChange={(e) => setSenha(e.target.value)}
-              />
-            </div>
-
-            <button className="btn" onClick={handleSubmit}>
-              Criar conta
-            </button>
-          </form>
-
-          <form className="login">
-            <h2 className="title">login</h2>
-
-            <div className="input-field">
-              <img src={rm} alt="avatar" className="avatar" />
-              <input
-                type="email"
-                placeholder="RM"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <div className="input-field">
-              <img src={se} alt="avatar" className="avatar" />
-              <input
-                type="password"
-                placeholder="SENHA"
-                onChange={(e) => setSenha(e.target.value)}
-              />
-            </div>
-
-            <button className="btn" onClick={handleSubmit}>
-              login
-            </button>
-          </form>
+            <img src={deco} className="image" alt="" />
+          </div>
         </div>
       </div>
-      <div className="painels">
-        <div className="painel left-painel">
-          <div className="content">
-            <h3>Novo usua</h3>
-            <p>novo usua</p>
-            <button className="btn transparent" id="cada"></button>
-          </div>
-
-          <img src={deco} alt="" className="image" />
-        </div>
-
-        <div className="painel right-painel">
-          <div className="content">
-            <h3>Novo membro</h3>
-            <p>novo membro</p>
-            <button className="btn transparent" id="cada"></button>
-          </div>
-
-          <img src={deco} alt="" className="image" />
-        </div>
-      </div>
-    </div>
+    
   );
 };
 
