@@ -25,6 +25,7 @@
   top: -10%;
   right:48%;
   transform: translateY(-50%);
+  z-index: 5;
 }
 
 
@@ -121,7 +122,63 @@ form.login{
   background: linear-gradient(245.59deg, #6a4686 0% 28.53%, #230d47 75.52%);
 }
 
-image{
-  width: 100px;
-  height: 100px;
+.image{
+  width: 100%;
+  height: 100%;
+}
+
+.painels{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.painel{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 7;
+}
+
+.left-painel{
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-painel{
+  padding: 3rem 12% 2rem 17%;
+}
+
+.painel .content{
+  color: #f0f0f0;
+}
+
+.painel h3{
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.painel p{
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+.btn .transparent{
+  margin: 0;
+  background: none;
+  border: 2px solid #fff;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.right-painel .content, .right-painel .image{
+  transform: translateX(800px);
 }
