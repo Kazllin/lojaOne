@@ -1,29 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./cadastro.css";
-import avatar from "../../components/img/icons/entrar-avatar.png";
-import rm from "../../components/img/icons/envelope.png";
-import se from "../../components/img/icons/trancar.png";
 import deco from "../../components/img/icons/deco.png";
 
-const cadastro = () => {
+const Cadastro = () => {
+  const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
-  useEffect(() => {
-    const sign_in_btn = document.querySelector("#sign-in-btn");
-    const sign_up_btn = document.querySelector("#sign-up-btn");
-    const container = document.querySelector(".container");
-
-    novo.addEventListener('click', () => {
-      wrapper.classList.add("g");
-    });
-
-    velho.addEventListener('click', () => {
-      wrapper.classList.remove("g");
-    });
-
-  }, []);
 
   const handleSubmit = async () => {
     try {
@@ -39,102 +22,76 @@ const cadastro = () => {
     }
   };
 
-  return (
-    
-      <div className="container">
-        <div className="forms-container">
-          <div className="signin-signup">
-            <form action="#" className="sign-in-form">
-              <h2 className="title">Sign in</h2>
-              <div className="input-field">
-                <input type="text" placeholder="Username" onChange={(e) => setNome(e.target.value)}/>
-              </div>
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-              <input type="submit" value="Login" className="btn solid" />
-              <p className="social-text">Or Sign in with social platforms</p>
-              <div className="social-media">
-                <a href="#" className="social-icon">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </div>
-            </form>
-            <form action="#" className="sign-up-form">
-              <h2 className="title">Sign up</h2>
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-              <div className="input-field">
-                <i className="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-              <input type="submit" className="btn" value="Sign up" />
-              <p className="social-text">Or Sign up with social platforms</p>
-              <div className="social-media">
-                <a href="#" className="social-icon">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
+  const handleLogin = async () => {
+    try {
+      const response = await api.post("users", {
+        email: email,
+        senha: senha,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-        <div className="panels-container">
-          <div className="panel left-panel">
-            <div className="content">
-              <h3>New here ?</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                ex ratione. Aliquid!
-              </p>
-              <button className="btn transparent" id="sign-up-btn">
-                Sign up
-              </button>
+  return (
+    <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
+      <div className="forms-container">
+        <div className="signin-signup">
+          <form action="#" className={`sign-in-form ${isSignUpMode ? 'hidden' : ''}`}>
+            <h2 className="title">Login</h2>
+            <div className="input-field">
+              <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <img src={deco} className="image" alt="" />
-          </div>
-          <div className="panel right-panel">
-            <div className="content">
-              <h3>One of us ?</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                laboriosam ad deleniti.
-              </p>
-              <button className="btn transparent" id="sign-in-btn">
-                Sign in
-              </button>
+            <div className="input-field">
+              <input type="password" placeholder="Senha" onChange={(e) => setSenha(e.target.value)} />
             </div>
-            <img src={deco} className="image" alt="" />
-          </div>
+            <button type="button" className="btn solid" onClick={handleLogin}>
+              Login
+            </button>
+          </form>
+          <form action="#" className={`sign-up-form ${isSignUpMode ? '' : 'hidden'}`}>
+            <h2 className="title">Cadastro</h2>
+            <div className="input-field">
+              <input type="text" placeholder="Nome" onChange={(e) => setNome(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <input type="password" placeholder="Senha" onChange={(e) => setSenha(e.target.value)} />
+            </div>
+            <button type="button" className="btn solid" onClick={handleSubmit}>
+              Cadastrar
+            </button>
+          </form>
         </div>
       </div>
-    
+
+      <div className="panels-container">
+        <div className="panel left-panel">
+          <div className="content">
+            <h3>Novo usuario ?</h3>
+            <p>Se cadastre aqui e comece a usar nosso sistema.</p>
+            <button className="btn transparent" onClick={() => setIsSignUpMode(true)}>
+              Cadastro
+            </button>
+          </div>
+          <img src={deco} className="image" alt="" />
+        </div>
+        <div className="panel right-panel">
+          <div className="content">
+            <h3>Ja esta cadastro?</h3>
+            <p>Loga aqui e comece a usar nosso sistema.</p>
+            <button className="btn transparent" onClick={() => setIsSignUpMode(false)}>
+              Login
+            </button>
+          </div>
+          <img src={deco} className="image" alt="" />
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default cadastro;
+export default Cadastro;
