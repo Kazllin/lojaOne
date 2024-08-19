@@ -14,12 +14,11 @@
 }
 
 footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   min-height: 50px;
   background: linear-gradient(245.59deg, #6a4686 0% 28.53%, #230d47 75.52%);
-  position:fixed;
   z-index: 999;
   border: none;
 }
