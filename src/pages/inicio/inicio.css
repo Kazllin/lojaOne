@@ -69,6 +69,29 @@
   transition: background-color 0.8s ease-in-out;
 }
 
+
+.slider_inicio{
+  max-width: 45%;
+}
+
+.slider_inicio .img_inicio{
+  width: 100%;
+  height: auto;
+  border: 10px;
+}
+
+.slick-dots{
+  bottom: -30px;
+}
+
+.slick-dots li button:before{
+  color: #333;
+}
+
+.slick-dots li.slick-active button:before{
+  color: #000;
+}
+
 .btn_inicio:hover{
   background-color: #555;
 }
