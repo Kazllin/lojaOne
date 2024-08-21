@@ -9,16 +9,19 @@
   width: 100%;
   background-color: #ffffff;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Impede que qualquer conteúdo transborde */
   z-index: 101;
 }
 
-.container_page{
+.container_page {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   margin-top: 50px;
+  width: 100%;
+  max-width: 100%; /* Garante que o container não exceda a largura da página */
+  overflow: hidden; /* Impede que conteúdo transborde */
 }
 
 .container3{
@@ -29,11 +32,23 @@
   display: block;
 }
 
-.container4{
+.container4 {
   height: 560px;
   width: 100%;
   padding: 20px;
-  background-color: #b61b1b;
+  text-align: center;
+  display: flex;
+  flex-direction: line; /* Faz com que o conteúdo seja disposto em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: flex-start; /* Alinha os itens ao topo */
+  background-color: #ffffff;
+}
+
+.container3,
+.container4 {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* Inclui padding na largura e altura total */
 }
 
 .frases_inicio{
@@ -43,6 +58,7 @@
   justify-content: center;
   height: auto;
   width: 50%;
+  transform: translate(0% , 50%);
 }
 
 .titulo_inicio{
@@ -50,7 +66,7 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
-  
+  display: inline;
 }
 
 .subtitulo_inicio{
@@ -82,6 +98,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+
 }
 
 .slick-dots{
@@ -100,26 +117,152 @@
   background-color: #555;
 }
 
+.carde_titulo {
+  font-size: 24px;
+  margin-bottom: 20px; /* Adiciona um espaço entre o título e os cards */
+  transform: translate(300%, -800%);
+}
+
+.carde_grid {
+  display: flex;
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  padding: 10px;
+  flex-wrap: wrap; /* Permite que os cards fiquem em várias linhas, se necessário */
+  transform: translate(-25%, 0%);
+
+}
+
+.carde_inicio{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  height: 65%;
+}
+
+.carde_inicio:hover{
+  transform: translateY(-5px);
+}
+
+.carde_img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carde_info{
+  text-align: left;
+}
+
+.carde_nome{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.carde_descricao{
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.carde_add{
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%;
+}
+
+.carde_add:hover{
+  background-color: #444;
+}
+
+.frases_inicio,
+.carde_grid,
+.carde_inicio {
+  max-width: 100%; /* Garante que os elementos não excedam a largura do container */
+  overflow: hidden; /* Impede que conteúdo transborde */
+}
+
+
 @media screen and (max-width: 870px) {
-  .container3{
+  .container3 {
     min-height: 800px;
-    background-color: blue;
+    height: 100vh;
   }
 
-  .container4{
-    min-height: 800px;
-    background-color: #00ff33;
+  .frases_inicio {
+    transform: translate(0%, 0%);
+    width: 100%;
+    text-align: center; /* Centralizar texto em telas menores */
+  }
+
+  .titulo_inicio {
+    font-size: 1.5rem;
+    white-space: normal; /* Permitir quebra de linha */
+    text-transform: uppercase;
+  }
+
+  .subtitulo_inicio {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    white-space: normal;
+  }
+
+  .slider_inicio {
+    max-width: 80%;
+    transform: translate(0%, 0%);
+    margin: 0 auto; /* Centralizar o slider */
+  }
+
+  .container4 {
+    padding: 10px;
+  }
+
+  .carde_inicio {
+    width: 90%;
+    max-width: 350;
   }
 }
 
 @media screen and (max-width: 570px) {
-  .container3{
+  .container3 {
     min-height: 500px;
-    background-color: #da07b3;
+    padding: 10px;
   }
 
-  .container4{
-    min-height: 500px;
-    background-color: #187270;
+  .titulo_inicio {
+    font-size: 1.2rem;
+  }
+
+  .subtitulo_inicio {
+    font-size: 0.9rem;
+  }
+
+  .slider_inicio {
+    max-width: 100%;
+    transform: translate(0%, 0%);
+  }
+
+  .container4 {
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .carde_grid {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .carde_inicio {
+    width: 100%;
+    margin: 10px 0;
   }
 }
