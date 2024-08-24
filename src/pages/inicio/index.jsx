@@ -12,15 +12,15 @@ export default function Inicio() {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 300,
-    speed: 500,
+    speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1
   };
 
   return (
-    <div className="page">
       <div className="container_page">
         <div className='container3'>
+          <div className="teste">
           <div className='frases_inicio'>
             <h1 className='titulo_inicio'>Tudo o que você<br /> precisa para a escola</h1>
             <p className='subtitulo_inicio'>Explore our curated selection of high-quality school supplies for<br /> all your educational needs.</p>
@@ -43,59 +43,10 @@ export default function Inicio() {
             </Slider>
           </div>
         </div>
-
+        </div>
 
         <div className="container4">
-          <h1 className="carde_titulo">Popular Products</h1>
-          <div className="carde_grid">
-            <div className="carde_inicio">
-              <img src="" alt="" className="carde_img" />
-              <div className="carde_info">
-                <h2 className="carde_nome">Roupas</h2>
-                <p className="carde_descricao">Camisa</p>
-                <p className="carde_preco">12</p>
-                <button className="carde_add"></button>
-              </div>
-            </div>
-          </div>
-
-          <div className="carde_grid">
-            <div className="carde_inicio">
-              <img src="" alt="" className="carde_img" />
-              <div className="carde_info">
-                <h2 className="carde_nome">Roupas</h2>
-                <p className="carde_descricao">Camisa</p>
-                <p className="carde_preco">12</p>
-                <button className="carde_add"></button>
-              </div>
-            </div>
-          </div>
-
-          <div className="carde_grid">
-            <div className="carde_inicio">
-              <img src="" alt="" className="carde_img" />
-              <div className="carde_info">
-                <h2 className="carde_nome">Roupas</h2>
-                <p className="carde_descricao">Camisa</p>
-                <p className="carde_preco">12</p>
-                <button className="carde_add"></button>
-              </div>
-            </div>
-          </div>
-
-          <div className="carde_grid">
-            <div className="carde_inicio">
-              <img src="" alt="" className="carde_img" />
-              <div className="carde_info">
-                <h2 className="carde_nome">Roupas</h2>
-                <p className="carde_descricao">Camisa</p>
-                <p className="carde_preco">12</p>
-                <button className="carde_add"></button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
   )
 }
