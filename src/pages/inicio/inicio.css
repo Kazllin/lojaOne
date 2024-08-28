@@ -5,11 +5,12 @@
 }
 
 .container_page {
-  position: absolute;
+  position: relative;
   width: 100%;
   background-color: #fff;
   overflow: hidden;
   padding-top: 3.5%;
+  flex-wrap: wrap;
 }
 
 .container3 {
@@ -24,17 +25,13 @@
   padding: 0 10%;
 }
 
-.container4 {
-  height: 560px;
-  width: 100%;
-  background-color: #ffffff;
-}
+
 
 .teste {
   width: 100%;
   /* Adjust width to control the space within .container3 */
   display: flex;
-  justify-content: space-between;
+  justify-content:  space-between;
   /* Space out .frases_inicio and .slider_inicio */
   align-items: center;
   /* Center items vertically */
@@ -72,6 +69,7 @@
 }
 
 .slider_inicio {
+  width: 100%;
   max-width: 40%;
   height: auto;
   transform: translate(0%, 0%);
@@ -98,4 +96,65 @@
 
 .btn_inicio:hover {
   background-color: #555;
+}
+
+
+.container4 {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+.v{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.caixa{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px 50px;
+  flex-wrap: wrap;
+  top: 120px;
+}
+
+.caixa .carde{
+  position: relative;
+  width: 360px;
+  height: 300px;
+
+  background-color: red;
+}
+
+@media (max-width: 870px) {
+
+  .container4{
+    height: auto;
+    padding: 1rem;
+  }
+
+  .caixa {
+    gap: 50px 25px; /* Reduz o espaçamento entre os cartões */
+  }
+
+  .carde {
+    width: 100%; /* Faz com que os cartões ocupem 100% da largura disponível */
+    max-width: 360px; /* Define um tamanho máximo para os cartões */
+  }
+}
+
+@media (max-width: 570px) {
+  .caixa {
+    gap: 20px 10px; /* Reduz ainda mais o espaçamento entre os cartões */
+  }
+
+  .carde {
+    width: 100%; /* Garante que os cartões ocupem a largura completa da tela */
+    max-width: 100%; /* Remove a restrição de tamanho máximo */
+  }
 }

@@ -12,15 +12,15 @@ export default function Inicio() {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 300,
-    speed: 900,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
   };
 
   return (
-      <div className="container_page">
-        <div className='container3'>
-          <div className="teste">
+    <div className="container_page">
+      <div className='container3'>
+        <div className="teste">
           <div className='frases_inicio'>
             <h1 className='titulo_inicio'>Tudo o que você<br /> precisa para a escola</h1>
             <p className='subtitulo_inicio'>Explore our curated selection of high-quality school supplies for<br /> all your educational needs.</p>
@@ -43,10 +43,46 @@ export default function Inicio() {
             </Slider>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div className="container4">
+      <div className="container4">
+      <h1 className='titulo_carde'>OS melhores</h1>
+<div className="v">
+          <div className="caixa">
+
+          <div className="carde">
+            <div className="caixaImg">
+
+            </div>
+
+            <div className="conteudo">
+            </div>
+          </div>
+          
+
+          <div className="carde">
+            <div className="caixaImg">
+
+            </div>
+
+            <div className="conteudo">
+            </div>
+          </div>
+
+
+          <div className="carde">
+            <div className="caixaImg">
+
+            </div>
+
+            <div className="conteudo">
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
+    </div>
+
   )
 }
