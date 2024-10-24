@@ -8,4 +8,14 @@ const api = axios.create({
   
 }) //parte que não vai mudar 
 
+
+// Função para definir o token no cabeçalho
+export const setAuthToken = (token) => {
+    if (token) {
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    } else {
+        delete api.defaults.headers.common['Authorization'];
+    }
+};
+
 export default api;
